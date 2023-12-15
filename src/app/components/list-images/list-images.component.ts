@@ -33,8 +33,8 @@ export class ListImagesComponent {
 
     this._imageService
       .getImages(this.paramToSearch, this.imagesPerPage, this.currentPage)
-      .subscribe(
-        (data) => {
+      .subscribe({
+        next: (data) => {
           if (data?.hits?.length === 0) {
             this._imageService.setError("Opps, we don't found any results.");
             this.loading = false;
@@ -47,12 +47,11 @@ export class ListImagesComponent {
           this.images = data?.hits;
           this.loading = false;
         },
-        (error) => {
+        error: (error) => {
           this._imageService.setError('Opps, happend a error with the server.');
           this.loading = false;
-        }
-      );
-    // fix this deprecated
+        },
+      });
   }
 
   beforePage() {
