@@ -27,9 +27,13 @@ export class ImageService {
     return this.search$.asObservable();
   }
 
-  getImages(term: string): Observable<any> {
-    const key = '41244132-5d9f4077610c8c80a9e96893b';
-    const URL = `https://pixabay.com/api/?key=${key}&q=${term}`;
+  getImages(
+    term: string,
+    imagesPerPage: number,
+    currentPage: number
+  ): Observable<any> {
+    const key = 'pon la tuya';
+    const URL = `https://pixabay.com/api/?key=${key}&q=${term}&per_page=${imagesPerPage}&page=${currentPage}`;
 
     return this.http.get(URL);
   }

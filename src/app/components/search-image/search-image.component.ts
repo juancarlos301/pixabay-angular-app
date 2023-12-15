@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { ImageService } from '../../services';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-search-image',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './search-image.component.html',
   styleUrl: './search-image.component.css',
 })
